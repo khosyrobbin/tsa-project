@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RelasiPulangsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class RelasiPulangsTable extends Migration
      */
     public function up()
     {
-        Schema::table('pulangs', function (Blueprint $table) {
+        Schema::table('profil', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->nullable();
             $table->foreign('id')->references('id')->on('users');
         });
@@ -26,9 +26,9 @@ class RelasiPulangsTable extends Migration
      */
     public function down()
     {
-        Schema::table('pulangs', function (Blueprint $table) {
+        Schema::table('profil', function (Blueprint $table) {
             $table->string('users');
             $table->dropForeign(['id']);
         });
     }
-}
+};

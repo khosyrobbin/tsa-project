@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePulangsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreatePulangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pulangs', function (Blueprint $table) {
-            $table->id('id_pulangs');
-            $table->date('tanggal');
-            $table->time('waktu');
-            $table->string('deskripsi');
-            $table->string('status');
+        Schema::create('profil', function (Blueprint $table) {
+            $table->id('id_profil');
+            $table->string('nama_lengkap');
+            $table->string('instansi');
+            $table->string('foto');
+            $table->string('jenis_kelamin');
+            $table->string('no_telp');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreatePulangsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pulangs');
+        Schema::dropIfExists('profil');
     }
-}
+};
